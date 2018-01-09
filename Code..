@@ -4,28 +4,38 @@ using System.Collections;
 public class SoundTrack : MonoBehaviour {
 
  static SoundTrack DuplicationFix = null;
+ 
+ void Awake()
+ 
+ {
+	
+			if (DuplicationFix != null)
+				
+			{
+				Destroy(gameObject);
+				print ( "Auto deletion done");
+			} else 
+				
+			{
+				DuplicationFix = this;
+				GameObject.DontDestroyOnLoad(gameObject); // -->  Background SoundTrack for the game	 
+				
+		
+
+ }
+ 
+ }
 
 	// Use this for initialization
 	void Start ()
 	
-	 {
-	 
-	 if (DuplicationFix != null)
-	 
-	 {
-	 Destroy(gameObject);
-	 print ( "Auto deletion done");
-	 } else 
-	 
-	 {
-	 		DuplicationFix = this;
-			GameObject.DontDestroyOnLoad(gameObject); // -->  Background SoundTrack for the game	 
-	 
+	{
+	
+
+	
 	 }
 	 
 
-	
-	}
 	
 	// Update is called once per frame
 	void Update () 
@@ -36,3 +46,4 @@ public class SoundTrack : MonoBehaviour {
 }
 
 }
+
