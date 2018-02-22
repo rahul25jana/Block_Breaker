@@ -1,0 +1,37 @@
+using UnityEngine;
+using System.Collections;
+
+public class Ball : MonoBehaviour {
+
+	public Bat bat;
+	private Vector3 bat2ballvec;
+	private bool has_started;
+	
+	void Start () 
+	{
+	bat2ballvec = this.transform.position - bat.transform.position;
+	//print (bat2ballvec);
+	}
+	
+	// Update is called once per frame
+	void Update () 
+	{
+	 // locking the game
+	if(!has_started) 
+	{
+	this.transform.position = bat.transform.position + bat2ballvec;
+	
+	if(Input.GetMouseButtonDown(0))
+	{
+	  // only if mouse is pressed -- > left click
+	print(" left mouse clicked ");
+	has_started = true;
+	this.rigidbody2D.velocity = new Vector2(5f, 6f); 
+	
+	}
+
+}
+}
+
+}
+ 
