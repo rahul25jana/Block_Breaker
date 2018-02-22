@@ -1,0 +1,21 @@
+using UnityEngine;
+using System.Collections;
+
+public class Bat : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () 
+	{
+		Vector3 BatPos = new Vector3( 0.5f, this.transform.position.y , 0);
+		float mousepos = Input.mousePosition.x / Screen.width * 16; 
+		 print ( mousepos);
+		BatPos.x = Mathf.Clamp(mousepos, 0.5f, 15.5f);
+	 	this.transform.position = BatPos;
+	 	
+	}
+}
