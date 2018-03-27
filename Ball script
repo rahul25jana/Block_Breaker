@@ -4,11 +4,13 @@ using System.Collections;
 public class Ball : MonoBehaviour {
 
 	public Bat bat;
+	private bool has_started = false;
 	private Vector3 bat2ballvec;
-	private bool has_started;
+	
 	
 	void Start () 
 	{
+	bat = GameObject.FindObjectOfType<Bat>();   //==> automatically finds the type 
 	bat2ballvec = this.transform.position - bat.transform.position;
 	//print (bat2ballvec);
 	}
@@ -26,7 +28,7 @@ public class Ball : MonoBehaviour {
 	  // only if mouse is pressed -- > left click
 	print(" left mouse clicked ");
 	has_started = true;
-	this.rigidbody2D.velocity = new Vector2(5f, 6f); 
+	this.rigidbody2D.velocity = new Vector2(6f, 6f); 
 	
 	}
 
@@ -34,4 +36,5 @@ public class Ball : MonoBehaviour {
 }
 
 }
+ 
  
