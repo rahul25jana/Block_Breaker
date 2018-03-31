@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Ball : MonoBehaviour {
 
-	public Bat bat;
+	private Bat bat;
 	private bool has_started = false;
 	private Vector3 bat2ballvec;
 	
@@ -28,11 +28,23 @@ public class Ball : MonoBehaviour {
 	  // only if mouse is pressed -- > left click
 	print(" left mouse clicked ");
 	has_started = true;
-	this.rigidbody2D.velocity = new Vector2(6f, 6f); 
+	this.rigidbody2D.velocity = new Vector2(4f, 9f); 
 	
 	}
 
 }
+}
+
+void OnCollisionEnter2D (Collision2D collision)
+{
+Vector2 Velocity_tweak = new Vector2(Random.Range(0.4f, 0.6f), Random.Range(0.4f,0.6f)); // using random.range function
+//print (Velocity_tweak);
+if(has_started && gameObject.CompareTag("Breakable"))
+{
+audio.Play();
+rigidbody2D.velocity = rigidbody2D.velocity + Velocity_tweak;
+}
+
 }
 
 }
